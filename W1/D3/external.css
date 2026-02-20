@@ -1,0 +1,20 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+.box2{
+    margin: 30px;
+    margin: 10px 30px; 
+    margin: 10px 30px 20px 40px;
+    margin: auto;
+    }
+body{
+    background-color:lightgrey;
+}
+.border{
+    border: 2px solid black;
+    border-right: 3px dotted red;
+    border-bottom: 4px dashed blue;
+    border-radius: 20px;
+}
