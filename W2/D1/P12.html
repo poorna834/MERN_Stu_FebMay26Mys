@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Introduction @media rules</title>
+    <style>
+       .notice{
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+        }
+        .notice{
+            background-color:aquamarine;
+        }
+            @media screen and (max-width:768px){
+            .notice{
+                background-color: orange;
+                color: blueviolet;
+                font-size: 14px;
+            }
+        }
+           @media screen and (min-width:769px) and (max-width:1024px){
+            .notice{
+                background-color:white;
+            }
+        }
+           @media screen and (orientation: landscape){
+            body{
+                background-color: rgb(208, 255, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notice"> Resize or Rotate device
+    </div>
+</body>
+</html>
