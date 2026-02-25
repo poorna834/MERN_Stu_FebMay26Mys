@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Orientation Switch</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <section class="border rounded-lg p-6 space-y-4">
+        <h2>Flex-col on Mobile, flex-row on md+</h2>
+        <div class="border rounded p-4 flex flex-col md:flex-row gap-4">
+            <div class="bg-gray-100 rounded p-4 flex-1">Block A</div>
+            <div class="bg-gray-100 rounded p-4 flex-1">Block B</div>
+            <div class="bg-gray-100 rounded p-4 flex-1">Block C</div>
+        </div>
+        <nav class="border rounded-b-xl px-6 flex-col md:flex-row w-full h-full flex justify-between bg-yellow-300">
+        <div class="flex gap-6 items-center flex-col md:flex-row ">
+            <a href="#" class="font-bold text-lg">gola</a>
+            <ul class="flex justify-between gap-6 text-blue-700 flex-col md:flex-row">
+                <li><a href="#" class="hover:text-red-900 transition">Home</a></li>
+                <li><a href="#" class="hover:text-red-900 transition">Features</a></li>
+                <li><a href="#" class="hover:text-red-900 transition">Contact</a></li>
+            </ul>
+        </div>
+        <div class="flex gap-6 items-center flex-col md:flex-row">
+           <a href="#" class="hover:text-red-900 transition">Login</a>
+           <button class="rounded-lg bg-black text-white
+           hover:bg-gray-400 px-4 py-2">Sign Up</button>
+
+        </div>
+    </nav>
+    </section>
+</body>
+</html>
