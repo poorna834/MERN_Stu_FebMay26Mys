@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay: dim background</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+        <h1 class="text-2xl font-bold">Overlay text background</h1>
+        <section class="border rounded p-6">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="h-32 rounded bg-[linear-gradient(135deg,#7931b7,#31a2b7)]">
+                    Card 1
+                </div>
+                <div class="h-32 rounded bg-[linear-gradient(135deg,#7931b7,#b73187)]">
+                    Card 2
+                </div>
+                <p class="mt-4 text-lg">This is the content behind overlay.</p>
+            </div>
+        </section>
+        <div  id="overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+        aria-label="Toggle Menu" aria-expanded="false" aria-controls="overlay">
+            <div class="w-[min(520px,92vw)] bg-white rounded p-6 shadow-lg">
+                <h2 class="text-lg font-bold">My Modal Window</h2>
+                <p class="text-sm mt-2"> This is my second modal window that i created.</p>
+            <div class="mt-6 flex justify-end">
+            <button id="closebtn" class="px-4 py-2 rounded border hover:bg-red-100 transition">Close</button>
+            </div>
+            </div>
+        </div>
+    </main>
+    <!-- <script>
+        const overlay = document.getElementById("overlay");
+        const closebtn = document.getElementById("closebtn");
+        closebtn.addEventListener('click', () => {
+            overlay.classList.toggle('hidden');
+            overlay.classList.toggle('block');
+            const expanded = closebtn.getAttribute('aria-expanded') === 'true';
+            closebtn.setAttribute('aria-expanded', String(!expanded));
+        });
+    </script> -->
+    <script>
+        const overlay = document.getElementById("overlay");
+        document.getElementById('closebtn').addEventListener('click',()=>{
+            overlay.classList.remove('flex');
+            overlay.classList.add("hidden");
+        });
+
+        // Click outside if modal to close it
+        overlay.addEventListener('click' ,(e)=>{
+            if(e.target === overlay){
+                overlay.classList.remove('flex');
+                overlay.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
