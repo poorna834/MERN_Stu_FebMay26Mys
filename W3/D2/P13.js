@@ -1,0 +1,24 @@
+// Function Scope
+
+function Scope(){
+    var insideVar = 10;
+    let insideLet = 20;
+    const insideConst = 30;
+    console.log(insideVar);
+    console.log(insideLet);
+    console.log(insideConst);
+}
+Scope();
+// console.log(insideVar); //function scoped
+// console.log(insideLet);  //block scoped
+// console.log(insideConst); //block scoped
+
+function varFunctionScoped(){
+    if(true){
+        var x = 40;
+        let y = 50;
+    }
+    console.log("x: ",x);
+    console.log("y: ",y);
+}
+varFunctionScoped();
