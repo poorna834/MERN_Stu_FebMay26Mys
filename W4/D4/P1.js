@@ -1,0 +1,17 @@
+// const sampleText = document.getElementById("sampleText");
+const inspectBtn = document.getElementById("inspectBtn");
+const out = document.getElementById("out");
+
+inspectBtn.addEventListener("click",function(){
+    const info = {
+        htmlLang : document.documentElement.lang,
+        charset : document.characterSet,
+        // browser's primary preferred language.
+        browserLanguage : navigator.language, 
+        // Array of all browser language. 
+        browserLanguages : navigator.languages,
+        sampleText : document.getElementById("sampleText").textContent
+    };
+    console.log(info);
+    out.textContent = JSON.stringify(info,null,2);
+});
