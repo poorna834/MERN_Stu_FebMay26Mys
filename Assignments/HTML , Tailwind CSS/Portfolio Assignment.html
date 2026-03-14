@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poornashree L | Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-yellow-50 text-black-800 scroll-smooth">
+
+  <!-- Navigation -->
+  <header class="bg-yellow-300 shadow-md">
+    <nav class="sticky top-0 bg-yellow-300 z-50 shadow-md">
+      <a href="#home" class="text-xl font-bold text-black">
+        Poornashree L
+      </a>
+      <ul class="flex gap-8 font-medium">
+        <li><a href="#home" class="hover:text-orange-700 transition">Home</a></li>
+        <li><a href="#about" class="hover:text-orange-700 transition">About</a></li>
+        <li><a href="#skills" class="hover:text-orange-700 transition">Skills</a></li>
+        <li><a href="#projects" class="hover:text-orange-700 transition">Projects</a></li>
+        <li><a href="#contact" class="hover:text-orange-700 transition">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="text-center py-16 px-6 bg-orange-100">
+    <h1 class="text-4xl font-bold mb-4">Poornashree L</h1>
+    <img src="myphoto.jpeg" alt="Profile Photo"
+      class="w-40 h-40 square-half mx-auto mb-6 object-cover">
+    
+    <p class="max-w-3xl mx-auto text-lg mb-6">
+      I am Poornashree L, a Final-Year Computer Science Engineering student with a strong interest in building intelligent and scalable technology solutions. My expertise includes Artificial Intelligence, Machine Learning, full-stack development, and database management, with proficiency in Python, Java, and modern web technologies. I am currently developing a Hybrid AI Medical Voicebot that leverages NLP and speech recognition to enhance patient interaction and streamline digital healthcare processes. I am driven by innovation and focused on creating impactful, future-ready solutions that address real-world challenges.
+    </p>
+
+    <a href="#contact"
+       class="bg-cyan-700 text-black px-6 py-3 rounded-lg hover:bg-orange-600 transition">
+       Contact Me
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-5xl mx-auto bg-yellow-100 rounded-xl shadow-md p-10 my-12">
+    <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+
+    <article>
+      <h3 class="text-xl font-semibold mb-4">Full Stack Developer</h3>
+      <p class="mb-6">
+        I am Poornashree L, a Final-Year Computer Science Engineering student passionate about designing intelligent, scalable, and impact-driven technology solutions. My expertise spans Artificial Intelligence, Machine Learning, full-stack development, and database systems, with strong proficiency in Python, Java, and modern web technologies. I have hands-on experience building responsive applications, integrating APIs, and working with structured data to develop efficient and user-centric systems. Currently, I am developing a Hybrid AI Medical Voicebot that leverages Natural Language Processing and speech recognition to enhance patient engagement and streamline digital healthcare workflows. With strong analytical thinking, problem-solving abilities, and a forward-looking mindset, I am committed to building innovative, future-ready solutions that address real-world challenges and drive meaningful technological advancement.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <span class="bg-orange-300 px-4 py-2 rounded-full text-sm font-medium">
+          Full-Stack Development
+        </span>
+        <span class="bg-orange-300 px-4 py-2 rounded-full text-sm font-medium">
+          Python & Java Programming
+        </span>
+        <span class="bg-orange-300 px-4 py-2 rounded-full text-sm font-medium">
+          Artificial Intelligence
+        </span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-3xl font-bold text-center mb-10">My Skills</h3>
+
+    <div class="flex flex-wrap justify-center gap-8">
+      <div class="bg-orange-200 p-8 rounded-xl shadow-md w-64 text-center hover:-translate-y-2 hover:shadow-xl transition">
+        <h4 class="text-lg font-semibold mb-2">MERN Stack</h4>
+        <p>Frontend, Node.js, MongoDB</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-5xl mx-auto bg-yellow-100 rounded-xl shadow-md p-10 my-12">
+    <h3 class="text-3xl font-bold text-center mb-8">My Projects</h3>
+
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition mb-8">
+      <h4 class="text-xl font-semibold mb-2">
+        AI Medical Voicebot With Real Doctor Integration
+      </h4>
+      <p class="mb-4">
+        Hybrid AI Medical Voicebot: An AI-powered healthcare assistant that integrates Natural Language Processing and speech recognition to enable intelligent patient interaction, provide preliminary health guidance, and streamline digital healthcare workflows.
+      </p>
+      <a href="https://wikipedia.org" target="_blank"
+         class="text-blue-600 font-medium hover:underline">
+         View
+      </a>
+    </div>
+
+    <!-- Project Table -->
+    <table class="w-full border border-gray-300 text-center">
+      <thead>
+        <tr class="bg-orange-600 text-white">
+          <th class="p-3 border">Project</th>
+          <th class="p-3 border" colspan="2">Technology</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-3 border">AWS For Hosting</td>
+          <td class="p-3 border">MERN</td>
+          <td class="p-3 border">Redis</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-12">
+    <h3 class="text-3xl font-bold text-center mb-8">Contact Me</h3>
+
+    <form class="max-w-lg mx-auto bg-yellow-100 p-8 rounded-xl shadow-md">
+      <fieldset>
+        <legend class="text-lg font-semibold mb-6">Contact Form</legend>
+
+        <div class="mb-5">
+    <label for="name" class="block mb-2 font-medium">Name</label>
+
+        <input 
+            type="text" 
+            id="name"
+            name="name"
+            placeholder="Name"
+            class="w-full p-3 border border-gray-300 rounded-lg">
+        </div>
+        <div class="mb-5">
+          <label class="block mb-2 font-medium">Email</label>
+          <input type="email" placeholder="Email"
+            class="w-full p-3 border border-gray-300 rounded-lg">
+        </div>
+
+        <div class="mb-6">
+          <select class="w-full p-3 border border-gray-300 rounded-lg">
+            <option value="fte">FTE</option>
+            <option value="consultant">Consultant</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <button type="submit"
+        class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+        Send
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-yellow-300 text-center py-6">
+    <p>2026 Poornashree L | AI & Healthcare Technology</p>
+  </footer>
+
+</body>
+</html>
