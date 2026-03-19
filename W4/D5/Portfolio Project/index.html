@@ -36,7 +36,8 @@
                     View Projects
                 </a>
 
-                <a href="assests/Poornashree L Resume.pdf" class="bg-blue-400 hover:bg-green-500 px-10 py-4 rounded shadow-xl">
+                <a href="assests/Poornashree L Resume.pdf"
+                    class="bg-blue-400 hover:bg-green-500 px-10 py-4 rounded shadow-xl">
                     Download Resume
                 </a>
 
@@ -93,40 +94,49 @@
 
     <!-- PROJECTS -->
 
-    <section id="projects" class="py-24 px-8 lg:px-16">
+    <section id="projects" class="py-20 px-8">
 
-        <div class="max-w-7xl mx-auto">
-
-            <div class="text-center mb-10">
-
-                <h2 class="text-4xl lg:text-5xl mb-6">My Projects</h2>
-
-                <p class="text-xl max-w-2xl mx-auto">
-                    Enterprise scale full-stack applications built with modern frameworks
-                </p>
-
-            </div>
-
-            <!-- Project Search (Feature will attach here) -->
-
-            <div class="mb-10 text-center">
-
-                <input id="project-search" type="text" placeholder="Search projects..."
-                    class="border rounded px-6 py-3 w-full max-w-md">
-
-            </div>
-
-            <!-- Project Filter Bar -->
-
-            <div id="project-filters" class="flex flex-wrap justify-center gap-4 mb-12">
-            </div>
-
-            <!-- Dynamic container for projects -->
-
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-
+        <h2 class="text-4xl text-center mb-10">My Projects</h2>
+        <!-- 
+</--🔍 SEARCH -->
+        <div class="text-center mb-6">
+            <input id="project-search" type="text" placeholder="Search projects..."
+                class="border px-4 py-2 rounded w-full max-w-md">
         </div>
+
+        <!-- ⭐ FAVORITES TOGGLE -->
+        <div class="text-center mb-6">
+            <button id="fav-toggle" class="bg-yellow-400 px-6 py-2 rounded font-bold">
+                Show Favorites
+            </button>
+        </div>
+
+        <!-- 🔄 SORTING -->
+        <div class="text-center mb-10">
+            <select id="sort-select" class="border px-4 py-2 rounded">
+                <option value="default">Sort By</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="status">Status</option>
+                <option value="category">Category</option>
+            </select>
+        </div>
+
+        <!-- PROJECT CONTAINER -->
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+    </section>
+    <!-- Project Filter Bar -->
+
+    <div id="project-filters" class="flex flex-wrap justify-center gap-4 mb-12">
+    </div>
+
+    <!-- Dynamic container for projects -->
+
+    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    </div>
+
+    </div>
 
     </section>
 
@@ -220,16 +230,21 @@
     </div>
 
     <!-- MAIN JS ENTRY -->
+    <!-- <script src="js/data/projects.js"></script> -->
     <script src="js/data/projects.js"></script>
     <script src="js/data/skills.js"></script>
+
+
+
     <script src="js/features/skills-render.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/features/modal.js"></script>
     <script src="js/features/contact-validation.js"></script>
     <script src="js/features/theme-toggle.js"></script>
-    <!-- <script src="js/features/project-search.js"></script> -->
-     <script src="js/data/projects.js"></script>
-     <script src="js/features/projects-render.js"></script>
+    <script src="js/features/favourites.js"></script>
+    <script src="js/features/projects-render.js"></script>
+    <script src="js/features/localStorage.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
