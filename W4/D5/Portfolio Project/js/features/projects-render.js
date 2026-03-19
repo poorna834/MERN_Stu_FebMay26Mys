@@ -9,50 +9,79 @@ function renderProjects(){
 
     projectContainer.innerHTML = "";
 
-    projectsData.forEach(function(project){
+    let projectsToRender = [...projectsData];
+    const favourites = getFavourites();
 
-        // Create outer card
+    // 🎯 Filter
+    if (showOnlyFavourites) {
+        projectsToRender = projectsToRender.filter(project =>
+            favourites.includes(project.id)
+        );
+    }
+
+    // 🔄 Sorting
+    const statusOrder = { "Live": 1, "Demo": 2 };
+
+    switch(currentSort){
+        case "name":
+            projectsToRender.sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
+            break;
+
+        case "status":
+            projectsToRender.sort((a, b) =>
+                statusOrder[a.status] - statusOrder[b.status]
+            );
+            break;
+
+        case "category":
+            projectsToRender.sort((a, b) =>
+                a.category.localeCompare(b.category)
+            );
+            break;
+    }
+
+    // 🎨 Render
+    projectsToRender.forEach(function(project){
+
         const card = document.createElement("div");
-        card.className = "p-8 text-center bg-purple-200 rounded-3xl shadow-lg";
+        card.className = "project-card p-8 text-center bg-purple-200 rounded-3xl shadow-lg";
+        card.setAttribute("tabindex", "0");
 
-        // Project Name
+        const favBtn = document.createElement("button");
+        favBtn.className = "fav-btn text-xl mt-2";
+        favBtn.setAttribute("data-id", project.id);
+        favBtn.textContent = favourites.includes(project.id) ? "★" : "☆";
+
         const projectName = document.createElement("h3");
         projectName.className = "text-xl font-bold mb-2";
         projectName.textContent = project.name;
 
-        // Project Category
         const projectCategory = document.createElement("p");
         projectCategory.className = "text-sm font-semibold";
         projectCategory.textContent = project.category;
 
-        // Project technologies
-        const projectTechnologies = document.createElement("p");
-        projectTechnologies.className = "text-sm";
-        projectTechnologies.textContent = project.technologies;
-
-        // Project Status
-        const projectStatus = document.createElement("p");
-        projectStatus.className = "text-sm";
-        projectStatus.textContent = project.status;
-
-        // Project LiveDemo
-        const projectLiveDemo = document.createElement("p");
-        projectLiveDemo.className = "text-sm";
-        projectLiveDemo.textContent = project.liveDemo;
-
-        // Project Github
-        const projectGithub = document.createElement("p");
-        projectGithub.className = "text-sm";
-        projectGithub.textContent = project.github;
-
-        // Project Description
         const projectDescription = document.createElement("p");
         projectDescription.className = "text-sm";
         projectDescription.textContent = project.description;
 
+        const projectTechnologies = document.createElement("p");
+        projectTechnologies.className = "text-sm";
+        projectTechnologies.textContent = project.technologies.join(", ");
 
+        const projectStatus = document.createElement("p");
+        projectStatus.className = "text-sm";
+        projectStatus.textContent = project.status;
 
-        // Add elements to card
+        const projectLiveDemo = document.createElement("p");
+        projectLiveDemo.className = "text-sm";
+        projectLiveDemo.textContent = project.liveDemo;
+
+        const projectGithub = document.createElement("p");
+        projectGithub.className = "text-sm";
+        projectGithub.textContent = project.github;
+
         card.appendChild(projectName);
         card.appendChild(projectCategory);
         card.appendChild(projectDescription);
@@ -60,13 +89,8 @@ function renderProjects(){
         card.appendChild(projectStatus);
         card.appendChild(projectLiveDemo);
         card.appendChild(projectGithub);
+        card.appendChild(favBtn);
 
-        // Add card to container
         projectContainer.appendChild(card);
-
     });
-
-    console.log("Projects Renderes Successfully!")
 }
-
-renderProjects();
