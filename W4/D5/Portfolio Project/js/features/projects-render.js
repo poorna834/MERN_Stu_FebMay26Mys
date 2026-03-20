@@ -12,14 +12,14 @@ function renderProjects(){
     let projectsToRender = [...projectsData];
     const favourites = getFavourites();
 
-    // 🎯 Filter
+    // Filter
     if (showOnlyFavourites) {
         projectsToRender = projectsToRender.filter(project =>
             favourites.includes(project.id)
         );
     }
 
-    // 🔄 Sorting
+    // Sorting
     const statusOrder = { "Live": 1, "Demo": 2 };
 
     switch(currentSort){
@@ -42,7 +42,7 @@ function renderProjects(){
             break;
     }
 
-    // 🎨 Render
+    // Render
     projectsToRender.forEach(function(project){
 
         const card = document.createElement("div");
