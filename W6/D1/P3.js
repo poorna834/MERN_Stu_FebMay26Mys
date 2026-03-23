@@ -12,3 +12,5 @@ const finalPrice = discountedPrice + taxAmount;
 console.log("Item: ",itemName);
 console.log("Base price: ",formatCurrency(basePrice));
 console.log("Discounted price:" , formatCurrency(discountedPrice));
+console.log("GST Tax @18%",formatCurrency(taxAmount));
+console.log("Final Price: ",formatCurrency(finalPrice));
