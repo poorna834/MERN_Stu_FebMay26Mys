@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // Click Events
 document.addEventListener("click", function (e) {
 
-    // ⭐ Favourite
+    
     if (e.target.classList.contains("fav-btn")) {
         const id = Number(e.target.getAttribute("data-id"));
         toggleFavourite(id);
         renderProjects();
     }
 
-    // 🎯 Toggle favourites view
+    
     if (e.target.id === "fav-toggle") {
         showOnlyFavourites = !showOnlyFavourites;
 
@@ -51,7 +51,7 @@ document.addEventListener("click", function (e) {
 });
 
 
-// 🔄 Sorting
+
 document.addEventListener("change", function (e) {
     if (e.target.id === "sort-select") {
         currentSort = e.target.value;
@@ -63,18 +63,18 @@ document.addEventListener("change", function (e) {
 });
 
 
-// ⌨️ Keyboard Navigation
+
 document.addEventListener("keydown", function (e) {
 
     const cards = document.querySelectorAll(".project-card");
 
-    // Shortcut: focus search
+    
     if (e.key === "/") {
         e.preventDefault();
         document.getElementById("project-search")?.focus();
     }
 
-    // Shortcut: toggle favourites
+
     if (e.key.toLowerCase() === "f") {
         showOnlyFavourites = !showOnlyFavourites;
         storage.set("showFavourites", showOnlyFavourites);
