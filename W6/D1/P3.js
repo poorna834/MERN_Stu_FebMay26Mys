@@ -11,3 +11,4 @@ const finalPrice = discountedPrice + taxAmount;
 
 console.log("Item: ",itemName);
 console.log("Base price: ",formatCurrency(basePrice));
+console.log("Discounted price:" , formatCurrency(discountedPrice));
