@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initContactValidation();
     initThemeToggle();
 
-    // Restore UI state
+    
     const favToggleBtn = document.getElementById("fav-toggle");
     if (favToggleBtn) {
         favToggleBtn.textContent = showOnlyFavourites
