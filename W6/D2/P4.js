@@ -1,4 +1,4 @@
-// Using The EventEmitter Class with multiple parameters.
+// Using The EventEmitter Class with multiple parameters. And Once() Function
 
 const EventEmitter = require("events"); //events is the In-built module
 
@@ -9,8 +9,8 @@ const orderEmitter = new EventEmitter();
 
 // Register a listener for the "orderPlaced" event.
 // Whenever the event is emitted, the function will execute.
-
-orderEmitter.on("orderPlaced",
+// Once() registers a listener that automatically removes itself after running for the first time.
+orderEmitter.once("orderPlaced",
     function(orderId,customerName,orderValue){
         console.log("Hello",customerName);
         console.log("Bill Amount",orderValue);
@@ -42,4 +42,5 @@ orderEmitter.on("orderPlaced",
 // Emit the eventwith extra data
 // The listener receives the orderId value.
 
+orderEmitter.emit("orderPlaced", "ORD-2403001","Poorna",10000);
 orderEmitter.emit("orderPlaced", "ORD-2403001","Poorna",10000);
