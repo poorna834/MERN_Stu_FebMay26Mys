@@ -1,4 +1,4 @@
-// Using The EventEmitter Class
+// Using The EventEmitter Class with multiple parameters.
 
 const EventEmitter = require("events"); //events is the In-built module
 
@@ -11,25 +11,29 @@ const orderEmitter = new EventEmitter();
 // Whenever the event is emitted, the function will execute.
 
 orderEmitter.on("orderPlaced",
-    function(orderId){
-        console.log("Hello Poorna, Waiting for restaurant to accept Order.",orderId);
+    function(orderId,customerName){
+        console.log("Hello",customerName);
+        console.log("Waiting for restaurant to accept Order.",orderId);
     }
 );
 
 orderEmitter.on("orderPlaced",
-    function(orderId){
+    function(orderId,customerName){
+        console.log("Hello",customerName);
         console.log("Restaurant Accepted Order.",orderId);
     }
 );
 
 orderEmitter.on("orderPlaced",
-    function(orderId){
+    function(orderId,customerName){
+        console.log("Hello",customerName);
         console.log("Assigning Delivery Partner.....");
     }
 );
 
 orderEmitter.on("orderPlaced",
-    function(orderId){
+    function(orderId,customerName){
+        console.log("Hello",customerName);
         console.log("Ramesh is delivering your order.",orderId);
     }
 );
@@ -37,4 +41,4 @@ orderEmitter.on("orderPlaced",
 // Emit the eventwith extra data
 // The listener receives the orderId value.
 
-orderEmitter.emit("orderPlaced", "ORD-2403001");
+orderEmitter.emit("orderPlaced", "ORD-2403001","Poorna");
