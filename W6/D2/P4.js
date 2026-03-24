@@ -11,8 +11,9 @@ const orderEmitter = new EventEmitter();
 // Whenever the event is emitted, the function will execute.
 
 orderEmitter.on("orderPlaced",
-    function(orderId,customerName){
+    function(orderId,customerName,orderValue){
         console.log("Hello",customerName);
+        console.log("Bill Amount",orderValue);
         console.log("Waiting for restaurant to accept Order.",orderId);
     }
 );
@@ -41,4 +42,4 @@ orderEmitter.on("orderPlaced",
 // Emit the eventwith extra data
 // The listener receives the orderId value.
 
-orderEmitter.emit("orderPlaced", "ORD-2403001","Poorna");
+orderEmitter.emit("orderPlaced", "ORD-2403001","Poorna",10000);
