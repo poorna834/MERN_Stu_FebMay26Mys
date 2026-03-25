@@ -1,4 +1,4 @@
-//Allocating buffers
+// Allocating buffers
 
 const emptyBuffer = Buffer.alloc(8);
 console.log("Contents of emptyBuffer: ",emptyBuffer);
@@ -13,5 +13,8 @@ const bytesWritten = buffer.write("HelloWorld");
 console.log("Bytes written: ",bytesWritten);
 
 // Subarray
-const firstSlice = buffer.subarray(1,4);
+const firstSlice = buffer.subarray(3,6);
 console.log("First Slice As Bytes: ",[...firstSlice]);
+
+// Decode The Bytes Into Text : toString()
+console.log("Decode firstSlice of buffer:",firstSlice.toString("utf-8"));
