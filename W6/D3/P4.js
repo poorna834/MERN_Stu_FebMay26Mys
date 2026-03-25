@@ -1,4 +1,4 @@
-// Readong and writing files asynchronously with fs/promises.
+// Reading and writing files asynchronously with fs/promises.
 
 const fs = require("fs/promises");
 const path = require("path");
