@@ -8,7 +8,16 @@ const filePath = path.join(__dirname,"sync-note.txt");
 // Syntax for function usage in a module
 // moduleName.functionName()
 
-fs.writeFileSync(filePath,"This file was written using writeFileSync().\nSynchronous operation block execution");
+// fs.writeFileSync(filePath,"This file was written using writeFileSync().\nSynchronous operation block execution");
+// Append to a file
+fs.appendFile(filePath,"New text added using fs.appendFile.",
+    function(error){
+        if(error){
+            console.log("Append error: ",error.message);
+            return;
+        }
+    }
+)
 
 console.log("File written synchronously.");
 
