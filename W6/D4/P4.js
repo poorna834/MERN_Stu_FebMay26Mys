@@ -27,7 +27,7 @@ const server = http.createServer(function(req,res) {
 
     // POST = create.
     // curl -X POST http://loaclhost:3001/users
-    // curl: Client URL: Free open src tool used to transfer data to or from a server using various network protocol.
+    // curl: Client URL: Free open src cli tool used to transfer data to or from a server using various network protocol.
      if(req.method === "POST" && req.url === "/users") {
         res.writeHead(201,{"Content-type":"text/plain"});
         res.end("New User Created.");
