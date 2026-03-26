@@ -18,4 +18,3 @@ const server = http.createServer(function(req,res){
 server.listen(3000,function(){
     console.log("Server is running at the http://localhost:3000");
 });
-
