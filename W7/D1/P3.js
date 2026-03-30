@@ -4,12 +4,12 @@ const app = express();
 
 // To Read
 app.get("/users",function(req,res){
-    res.send("Returing All Users");
     res.json([
         {id:1,name:"Rakesh"},
         {id:2,name:"Suresh"},
         {id:3,name:"Mukesh"},
     ]);
+    res.send("Returing All Users");
 });
 
 // To Create
