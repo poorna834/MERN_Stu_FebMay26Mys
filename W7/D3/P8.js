@@ -113,3 +113,8 @@ app.get("/me",authenticateAccessToken,function(req,res){
 app.listen(4000,function(){
     console.log("JWT demo server running @ http://localhost:4000");
 });
+
+
+// Login Post : curl -X POST http://localhost:4000/login -H "Content-Type:application/json" -d "{\"email\":\"email@email.com\",\"password\":\"pass@123\"}"
+// Refresh Post : curl -X POST http://localhost:4000/refresh -H "Content-Type:application/json" -d "{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwMSwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3NzUxMTM5MTMsImV4cCI6MTc3NTk3NzkxMywiaXNzIjoiand0LWV4YW1wbGUifQ.3LMuVD5K5RbXg9IOyQvARIxVKpr5eCcr1zu3kL10gjg\"}
+// Me Post : curl http://localhost:4000/me -H "Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEwMSwicm9sZSI6Im1lbWJlciIsImVtYWlsIjoiZW1haWxAZW1haWwuY29tIiwiaWF0IjoxNzc1MTEzOTQzLCJleHAiOjE3NzUxMTQ4NDMsImlzcyI6Imp3dC1leGFtcGxlIn0.yZJsx4ZOV-utyqZqlMid_x945lvHK8OjRbGMpOjbTAQ"
