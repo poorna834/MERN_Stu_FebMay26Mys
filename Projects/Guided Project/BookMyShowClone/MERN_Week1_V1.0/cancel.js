@@ -1,4 +1,4 @@
-// cancel.js
+//cancel.js
 // To cancel the existing booking if exists
 const bookingEmitter = require("./events");
 const {getCurrentBooking,clearCurrentBooking} = require("./booking");
@@ -6,25 +6,27 @@ const {getCurrentBooking,clearCurrentBooking} = require("./booking");
 function cancelBooking(movies){
     const booking = getCurrentBooking();
 
-    if(!booking){
-        bookingEmitter.emit("bookingFailed","No Booking Found To Cancel.");
-        return null;
-    }
-    const Movie = movies.find((m)=>m.id === booking.movieId);
-    if(!movie){
-        bookingEmitter.emit("bookingFailed","Movie Data Not Found While Cancelling Booking.")
-        return null;
-    }
-    const ShowTime = movie.showtimes.find((show)=>show.time.toLowerCase()===booking.time.toLowerCase());
-    if(!Showtime){
-        bookingEmitter.emit("bookingFailed","Showtime Data Not Found");
+    if (!booking) {
+        bookingEmitter.emit("bookingFailed","No booking found to cancel.");
         return null;
     }
 
-    //Restore Seats
-    showtime.seatsAvailable += booking.seatCount;
-    
-    // clear Current Booking
+    const movie = movies.find((m)=>m.id === booking.movieId);
+    if (!movie) {
+        bookingEmitter.emit("bookingFailed","Movie data not found while cancelling booking.");
+        return null;
+    }
+
+    const showtime = movie.showtimes.find((show)=>show.time.toLowerCase()===booking.time.toLowerCase());
+    if (!showtime) {
+        bookingEmitter.emit("bookingFailed","Showtime data not found");
+        return null;
+    }
+
+    //restore seats
+    showtime.seatsAvailable +=booking.seatCount;
+
+    // clear current Booking
     clearCurrentBooking();
 
     bookingEmitter.emit("bookingCancelled",booking);
