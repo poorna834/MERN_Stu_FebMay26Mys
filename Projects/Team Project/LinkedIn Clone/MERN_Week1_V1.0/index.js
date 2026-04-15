@@ -12,7 +12,7 @@ function showMenu (){
     console.log(chalk.blue("\n enter your chice"));
     console.log("1. Create profile");
     console.log("2. View my profile");
-    console.log("3.Edit profile");
+    console.log("3. Edit profile");
     console.log("4. View Other Profiles");
     console.log("5. Send Connection Request");
     console.log("6. View Requests");
