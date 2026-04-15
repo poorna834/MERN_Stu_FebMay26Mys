@@ -22,6 +22,7 @@ function showMenu (){
     console.log("10. View Feed");
     console.log("11. Like / Comment");
     console.log("12. Exit");
+    console.log("13. Login");
 
     rl.question("\n enter your chice :- ",(choice)=>{
         handleChoice(choice);
