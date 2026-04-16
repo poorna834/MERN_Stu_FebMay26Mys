@@ -1,4 +1,6 @@
 const user = require("./user");
+const chalk = require("chalk");
+
 function editProfile(rl,callback){
     const currentUser = user.getcurrentUser();
     if(!currentUser){
@@ -16,7 +18,7 @@ function editProfile(rl,callback){
             case "1":
                 rl.question("Enter Your skill: ",(skill)=>{
                     currentUser.skills.push(skill);
-                    console.log("Skill added sucessfully");
+                    console.log(chalk.green("Skill added sucessfully"));
                     callback();
                     
                 });
@@ -24,7 +26,7 @@ function editProfile(rl,callback){
             case "3":
                 rl.question("Enter Your Education:  ",(education)=>{
                     currentUser.education.push(education);
-                    console.log("Education added sucessfully");
+                    console.log(chalk.green("Education added sucessfully"));
                     callback();
                     
                 });
@@ -32,12 +34,12 @@ function editProfile(rl,callback){
             case "2":
                 rl.question("Enter Your Experience: ",(experience)=>{
                     currentUser.experience.push(experience);
-                    console.log("Experience added sucessfully");
+                    console.log(chalk.green("Experience added sucessfully"));
                     callback();
                 });
                 break; 
             default:
-                console.log("\n Invalid choice\n");
+                console.log(chalk.red("\nInvalid choice\n"));
                 callback();
                   
         }

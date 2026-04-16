@@ -3,15 +3,19 @@ const chalk = require("chalk");
 const user = require("./user");
 const profile = require("./profile");
 const login = require("./Login");
-
+const connections = require("./connections");
+const posts = require("./posts");
+const feed = require("./feed");
+const events = require("./events");
+const validator = require("./validator");
 
 const rl = readline.createInterface({
-    input : process.stdin,
-    output : process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
-function showMenu (){
-    console.log(chalk.blue("\n Welcome To LinkedIn Clone Menu Page"));
+function showMenu() {
+    console.log(chalk.blue("\nWelcome To LinkedIn Clone Menu Page"));
     console.log("1. Create profile");
     console.log("2. View my profile");
     console.log("3. Edit profile");
@@ -26,13 +30,13 @@ function showMenu (){
     console.log("12. Exit");
     console.log("13. Login profile");
 
-    rl.question("\n Enter your choice : ",(choice)=>{
+    rl.question("\nEnter your choice : ", (choice) => {
         handleChoice(choice);
-    })
-        
+    });
 }
-function handleChoice(choice){
-    switch(choice){
+
+function handleChoice(choice) {
+    switch (choice) {
 
         case "1":
             user.createProfile(rl, showMenu);
@@ -43,54 +47,55 @@ function handleChoice(choice){
             return;
 
         case "3":
-            profile.editProfile(rl, showMenu)
+            profile.editProfile(rl, showMenu);
             return;
 
         case "4":
             user.viewOtherFile(showMenu);
             return;
 
+
         case "5":
-            console.log(chalk.green("Send connection request"));
-            break;
+            connections.sendConnectionRequest(rl, showMenu);
+            return;
 
         case "6":
-            console.log(chalk.green("View request"));
-            break;
+            connections.viewRequests(showMenu);
+            return;
 
         case "7":
-            console.log(chalk.yellow("Accept / Reject request"));
-            break;
+            connections.handleRequests(rl, showMenu);
+            return;
+
 
         case "8":
-            console.log(chalk.green("View connections"));
-            break;
+            connections.viewConnections(showMenu);
+            return;
 
         case "9":
-            console.log(chalk.green("Create post"));
-            break;
+            posts.createPost(rl, showMenu);
+            return;
 
         case "10":
-            console.log(chalk.green("View feed"));
-            break;
+            feed.viewFeed(showMenu);
+            return;
 
         case "11":
-            console.log(chalk.green("Like/Comment"));
-            break;
+            feed.likeOrComment(rl, showMenu);
+            return;
 
         case "12":
-            console.log(chalk.red("Exit"));
+            console.log(chalk.cyan("Thank You For Using LinkedIn Clone"));
             rl.close();
             return;
+
         case "13":
-            login.loginProfile(rl,showMenu);
-            
+            login.loginProfile(rl, showMenu);
             return;
 
         default:
-            console.log(chalk.yellow("Invalid choice"));
+            console.log(chalk.red("Invalid choice"));
     }
-
     showMenu();
 }
 showMenu();
