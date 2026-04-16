@@ -1,8 +1,8 @@
 const user = require("./user");
 function editProfile(rl,callback){
-    const CurrentUser = user.getCurrentUser();
-    if(!CurrentUser){
-        console.log("\n Create profile First\n");
+    const currentUser = user.getcurrentUser();
+    if(!currentUser){
+        console.log("\n Create Profile First\n");
         return callback();
 
         
@@ -11,33 +11,33 @@ function editProfile(rl,callback){
     console.log("1. Add Skill");
     console.log("2. Add Experience");
     console.log("3. Add Education");
-    rl.question("enter your choice :-",(choice)=>{
+    rl.question("Enter your choice :",(choice)=>{
         switch(choice){
             case "1":
-                rl.question("enter your skill",(skill)=>{
-                    CurrentUser.skills.push(skill);
-                    console.log("skill added sucessfully");
+                rl.question("Enter Your skill: ",(skill)=>{
+                    currentUser.skills.push(skill);
+                    console.log("Skill added sucessfully");
                     callback();
                     
                 });
                 break;
             case "3":
-                rl.question("enter your education",(education)=>{
-                    CurrentUser.education.push(education);
-                    console.log("education added sucessfully");
+                rl.question("Enter Your Education:  ",(education)=>{
+                    currentUser.education.push(education);
+                    console.log("Education added sucessfully");
                     callback();
                     
                 });
                 break;
             case "2":
-                rl.question("enter your experience",(experience)=>{
-                    CurrentUser.experience.push(experience);
-                    console.log("experience added sucessfully");
+                rl.question("Enter Your Experience: ",(experience)=>{
+                    currentUser.experience.push(experience);
+                    console.log("Experience added sucessfully");
                     callback();
                 });
                 break; 
             default:
-                console.log("\ninvalid choice\n");
+                console.log("\n Invalid choice\n");
                 callback();
                   
         }

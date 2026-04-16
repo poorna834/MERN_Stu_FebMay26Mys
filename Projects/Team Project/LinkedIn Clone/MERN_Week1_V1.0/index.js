@@ -9,11 +9,12 @@ const rl = readline.createInterface({
     input : process.stdin,
     output : process.stdout
 });
+
 function showMenu (){
-    console.log(chalk.blue("\n enter your chice"));
+    console.log(chalk.blue("\n Welcome To LinkedIn Clone Menu Page"));
     console.log("1. Create profile");
     console.log("2. View my profile");
-    console.log("3.Edit profile");
+    console.log("3. Edit profile");
     console.log("4. View Other Profiles");
     console.log("5. Send Connection Request");
     console.log("6. View Requests");
@@ -23,9 +24,9 @@ function showMenu (){
     console.log("10. View Feed");
     console.log("11. Like / Comment");
     console.log("12. Exit");
-    console.log("13. login profile");
+    console.log("13. Login profile");
 
-    rl.question("\n enter your choice :- ",(choice)=>{
+    rl.question("\n Enter your choice : ",(choice)=>{
         handleChoice(choice);
     })
         
@@ -34,7 +35,7 @@ function handleChoice(choice){
     switch(choice){
 
         case "1":
-            user.Createprofile(rl, showMenu);
+            user.createProfile(rl, showMenu);
             return;
 
         case "2":
@@ -54,7 +55,7 @@ function handleChoice(choice){
             break;
 
         case "6":
-            console.log(chalk.green("view request"));
+            console.log(chalk.green("View request"));
             break;
 
         case "7":
@@ -62,19 +63,19 @@ function handleChoice(choice){
             break;
 
         case "8":
-            console.log(chalk.green("view connections"));
+            console.log(chalk.green("View connections"));
             break;
 
         case "9":
-            console.log(chalk.green("create post"));
+            console.log(chalk.green("Create post"));
             break;
 
         case "10":
-            console.log(chalk.green("view feed"));
+            console.log(chalk.green("View feed"));
             break;
 
         case "11":
-            console.log(chalk.green("like/comment"));
+            console.log(chalk.green("Like/Comment"));
             break;
 
         case "12":
@@ -87,7 +88,7 @@ function handleChoice(choice){
             return;
 
         default:
-            console.log(chalk.yellow("invalid choice"));
+            console.log(chalk.yellow("Invalid choice"));
     }
 
     showMenu();
