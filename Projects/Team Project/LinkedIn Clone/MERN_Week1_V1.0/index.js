@@ -2,6 +2,7 @@ const readline = require("readline");
 const chalk = require("chalk");
 const user = require("./user");
 const profile = require("./profile");
+const login = require("./Login");
 
 
 const rl = readline.createInterface({
@@ -12,7 +13,7 @@ function showMenu (){
     console.log(chalk.blue("\n enter your chice"));
     console.log("1. Create profile");
     console.log("2. View my profile");
-    console.log("3. Edit profile");
+    console.log("3.Edit profile");
     console.log("4. View Other Profiles");
     console.log("5. Send Connection Request");
     console.log("6. View Requests");
@@ -22,9 +23,9 @@ function showMenu (){
     console.log("10. View Feed");
     console.log("11. Like / Comment");
     console.log("12. Exit");
-    console.log("13. Login");
+    console.log("13. login profile");
 
-    rl.question("\n enter your chice :- ",(choice)=>{
+    rl.question("\n enter your choice :- ",(choice)=>{
         handleChoice(choice);
     })
         
@@ -79,6 +80,10 @@ function handleChoice(choice){
         case "12":
             console.log(chalk.red("Exit"));
             rl.close();
+            return;
+        case "13":
+            login.loginProfile(rl,showMenu);
+            
             return;
 
         default:

@@ -15,7 +15,7 @@ function Createprofile(rl,callback){
             };
             users.push(user);
             CurrentUser=user;
-            console.log("profile crated sucessfully \n");
+            console.log("Profile created sucessfully \n");
             callback();
             
         });
@@ -24,7 +24,7 @@ function Createprofile(rl,callback){
 function viewMyProfile(callback){
     if(!CurrentUser){
         console.log("no profile found create profile first.\n");
-        return callback;
+        return callback();
 
         
     }
@@ -34,14 +34,14 @@ function viewMyProfile(callback){
     console.log("Headline",CurrentUser.headline);
     console.log("Skills",CurrentUser.skills.join(",")||"NONE");
     console.log("Education",CurrentUser.education.join(",")||"NONE");
-    console.log("Experience",CurrentUser.experience.join(",")||"NONEs");
+    console.log("Experience",CurrentUser.experience.join(",")||"NONE");
     console.log("Connections",CurrentUser.connections.length);
     console.log("======================================================\n");
     callback();
 }
 function viewOtherFile(callback){
     const otherUsers = users.filter((user)=>{
-        return CurrentUser ?user.id!==CurrentUser.id:true
+        return CurrentUser ? user.id!==CurrentUser.id:true
     });
     if(otherUsers.length===0){
         console.log("\n no other profile created\n");
@@ -64,10 +64,14 @@ function getCurrentUser(){
 function getAllUsers(){
     return users;
 }
+function setCurrentUser(selectedUser){
+    CurrentUser = selectedUser;
+}
 module.exports = {
     Createprofile,
     viewMyProfile,
     viewOtherFile,
     getCurrentUser,
-    getAllUsers
+    getAllUsers,
+    setCurrentUser
 };
