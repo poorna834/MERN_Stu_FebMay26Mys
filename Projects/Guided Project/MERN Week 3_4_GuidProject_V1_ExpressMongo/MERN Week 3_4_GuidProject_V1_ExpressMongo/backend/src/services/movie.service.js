@@ -1,4 +1,4 @@
-const movie = require("../models/Movie");
+const Movie = require("../models/Movie");
 
 // Create Movie
 exports.createMovie = async (data) => {
@@ -69,5 +69,5 @@ exports.deleteMovie = async (id) => {
     });
     if(!movie)
         throw new Error("Movie Not Found")
-        
+
 };
