@@ -12,13 +12,12 @@ app.use("/api/movies",movieRoutes);
 app.use("/api/bookings",bookingRoutes);
 app.use("/api/shows",showRoutes);
 
-//Base URL
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        success:true,
-        message: "Movie booking API is running...",
+// Base URL
+app.get("/",(req, res) => {
+    res.status(200).json({ 
+    success: true,
+    message: "Movie booking API is running..."
     });
 });
-
 
 module.exports = app;
