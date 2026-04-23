@@ -1,4 +1,4 @@
-const movieeService = require("../services/movie.service");
+const movieService = require("../services/movie.service");
 
 // Create Movies
 exports.createMovie = async (req,res,next) => {
