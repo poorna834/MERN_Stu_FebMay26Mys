@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { PropBasics } from './components/P1'
+import { PropDestructuring } from './components/P2'
 import './App.css'
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
 
   return (
     <>
-      <PropBasics/>
+      {/* <PropBasics/> */}
+      <PropDestructuring/>
     </>
   )
 }
