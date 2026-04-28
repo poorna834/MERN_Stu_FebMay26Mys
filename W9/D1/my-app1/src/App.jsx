@@ -119,13 +119,26 @@ import './App.css'
 //   )
 // }
 
-function App() {
+// function App() {
+//       return (
+//         <div>
+//           <h1>React Introduction</h1>
+//           <p>React simplifies UI creation through reusable components.</p>
+//         </div>
+//       );
+//     }
+
+    function App() {
+      const user = "Poorna";
+      const marks = 80;
       return (
         <div>
-          <h1>React Introduction</h1>
-          <p>React simplifies UI creation through reusable components.</p>
+          {/* Expressions within JSX */}
+          {/*{Curly brackets}: in JSX Means: Switch from JSX / HTML like syntax into JS */}
+          <h1>Hello, {user}</h1>
+          <p>Updated Marks: {marks + 10}</p>
         </div>
       );
     }
 
-export default App
+export default App;
