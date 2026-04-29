@@ -21,6 +21,11 @@ export function PropState(){
         <>
             <h3>Props vs State</h3>
             <Child title="Parent data"/>
+
+            <p>State: {stateValue}</p>
+            <button onClick={()=>setStateValue('This is New State')}>
+                Update State 
+            </button>
         </>
     )
 }
