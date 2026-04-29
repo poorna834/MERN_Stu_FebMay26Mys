@@ -1,0 +1,26 @@
+// Props vs state
+// Props: data passed from parent to child component
+ // data comes from outside the component
+ // Are read only
+ // Are used for passing data between components
+// State: data managed inside a component
+   // Belongs to the component itself
+   // belongs to the component itself
+  // can be modified/changed
+ // setter method is used to modify data
+
+import { useState } from "react"
+
+function Child({title}){
+    return <p>Props: {title}</p>
+}
+
+export function PropState(){
+    const [stateValue, setStateValue] = useState('Local State');
+    return(
+        <>
+            <h3>Props vs State</h3>
+            <Child title="Parent data"/>
+        </>
+    )
+}
