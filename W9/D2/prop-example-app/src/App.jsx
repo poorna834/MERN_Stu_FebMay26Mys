@@ -9,7 +9,8 @@ import { ObjectsAndArrayProps } from "./components/P7";
 import { PropsImmutability } from "./components/P8";
 import { PropsState } from "./components/P9";
 import { FunctionProps } from "./components/P10";
-import { PropTypesDemo } from "./components/P11";
+import { PropTypesDemo } from "./components/P11"; 
+import { HOCExample } from "./components/P12"
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <PropsImmutability /> */}
       {/* <PropsState/> */}
       {/* <FunctionProps /> */}
-      <PropTypesDemo />
+      {/* <PropTypesDemo /> */}
+      <HOCExample/>
     </>
   )
 }
