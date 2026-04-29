@@ -8,6 +8,7 @@ import { CompositionDemo } from './components/P6'
 import { ObjectsAndArrayProps } from './components/P7'
 import { PropsImmutability } from './components/P8'
 import { PropState } from './components/P9'
+import {FunctionProps} from './components/P10'
 import './App.css'
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
       {/* <CompositionDemo/> */}
       {/* <ObjectsAndArrayProps/> */}
       {/* <PropsImmutability/> */}
-      <PropState/>
+      {/* <PropState/> */}
+      <FunctionProps/>
     </>
   )
 }
