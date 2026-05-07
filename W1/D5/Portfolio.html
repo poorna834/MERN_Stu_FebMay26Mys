@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+<style>#home {
+    text-align: center;
+    padding: 40px 20px;
+    background-color:bisque;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:burlywood;
+    padding: 15px 40px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color:black;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color:chocolate;
+}
+
+/* Profile */
+.profile-img {
+    width: 160px;
+    border-radius: 50%;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* CTA Button */
+.cta-button {
+    background-color:darkcyan;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ea580c;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    background-color:lemonchiffon;
+    margin: 20px auto;
+    max-width: 1100px;
+    border-radius: 10px;
+}
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color:darksalmon;
+    padding: 30px;
+    border: 1px solid var;
+    border-radius: 12px;
+    width: 220px;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Projects */
+.project-container {
+    margin-top: 30px;
+}
+
+.project-content {
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.project-content:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color:#ea580c;
+    color: white;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 50%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.submit-btn {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">Poornashree L</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Flexbox Layout : Hero Section -->
+    <section id="home" class="hero">
+        <h1>Poornashree L</h1>
+        <img src="myphoto.jpeg" alt="My Photo" class="profile-image">
+        <p>I am Poornashree L, a Final-Year Computer Science Engineering student with a strong interest in building intelligent and scalable technology solutions. My expertise includes Artificial Intelligence, Machine Learning, full-stack development, and database management, with proficiency in Python, Java, and modern web technologies. I am currently developing a Hybrid AI Medical Voicebot that leverages NLP and speech recognition to enhance patient interaction and streamline digital healthcare processes. I am driven by innovation and focused on creating impactful, future-ready solutions that address real-world challenges.</p>
+        <a href="#contact" class="cta-button">Contact Me</a>
+    </section>
+    <!-- About Section -->
+    <section>
+        <h2>About Me</h2>
+        <article class="about">
+            <h3>Full Stack Developer</h3>
+            <p>I am Poornashree L, a Final-Year Computer Science Engineering student passionate about designing intelligent, scalable, and impact-driven technology solutions. My expertise spans Artificial Intelligence, Machine Learning, full-stack development, and database systems, with strong proficiency in Python, Java, and modern web technologies. I have hands-on experience building responsive applications, integrating APIs, and working with structured data to develop efficient and user-centric systems. Currently, I am developing a Hybrid AI Medical Voicebot that leverages Natural Language Processing and speech recognition to enhance patient engagement and streamline digital healthcare workflows. With strong analytical thinking, problem-solving abilities, and a forward-looking mindset, I am committed to building innovative, future-ready solutions that address real-world challenges and drive meaningful technological advancement.</p>
+            <div class="tags">
+                <span class="tag">Full-Stack Development</span>
+                <span class="tag">Python & Java Programming</span>
+                <span class="tag">Artificial Intelligence</span>
+            </div>
+        </article>
+    </section>
+    <!-- Skills -->
+     <section id="skills">
+        <h3>My Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>MERN STACK</h4>
+                <p>Front End And Node.js,Mongo</p>
+            </div>
+        </div>
+     </section>
+     <!-- Projects -->
+      <section id="projects">
+        <h3>My Projects</h3>
+        <div class="projects-container">
+            <div class="projects-content">
+                <h4>AI Medical Voicebot With Real Doctor Integration.</h4>
+                <p>Hybrid AI Medical Voicebot: An AI-powered healthcare assistant that integrates Natural Language Processing and speech recognition to enable intelligent patient interaction, provide preliminary health guidance, and streamline digital healthcare workflows.</p>
+                <a href="https://wikipedia.org" target="_blank">View</a>
+            </div>
+        </div>
+        <table>
+            <thead><tr>
+                <th>Project</th>
+                <th colspan="2">Technology</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td>AWS For hosting</td>
+                    <td>MERN</td>
+                    <td>Redis</td>
+                </tr>
+            </tbody>
+        </table>
+      </section>
+
+      <!-- Contact Me -->
+       <section id="contact">
+        <h3>Contact Me</h3>
+        <form class="contact-form">
+            <fieldset>
+                <legend>Contact Form</legend>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="name" required>
+                </div>
+                  <div class="form-group">
+                    <label for="name">Email</label>
+                    <input type="email" name="email" id="email" placeholder="email" required>
+                </div>
+                <div class="form-group">
+                    <select name="type">
+                        <option value="fte">FTE</option>
+                        <option value="consultant">Consultant</option>
+                    </select>
+                </div>
+            </fieldset>
+            <button type="submit" class="submit-btn">Send</button>
+        </form>
+       </section>
+</body>
+</html>

@@ -1,40 +1,71 @@
-const roles = ['Developer', 'Designer', 'AI Engineer', 'Problem Solver'];
+/* ==========================================
+   TypingAnimationHeroSection.js
+   FULL WORKING STABLE VERSION
+========================================== */
 
-const typingElement = document.getElementById('typing-text');
+document.addEventListener("DOMContentLoaded", () => {
 
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+    const roles = [
+        "Developer",
+        "Designer",
+        "AI Engineer",
+        "Problem Solver"
+    ];
 
-function typeEffect() {
-  const currentRole = roles[roleIndex];
+    const typingElement = document.getElementById("typing-text");
 
-  if (!isDeleting) {
-    // typing
-    typingElement.textContent = currentRole.slice(0, charIndex++);
-  } else {
-    // deleting
-    typingElement.textContent = currentRole.slice(0, charIndex--);
-  }
+    if (!typingElement) return;
 
-  // speed control
-  let speed = isDeleting ? 100 : 200;
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-  // word completed
-  if (!isDeleting && charIndex === currentRole.length + 1) {
-    isDeleting = true;
-    speed = 1500; // pause before deleting
-  }
+    const typingSpeed = 100;
+const deletingSpeed = 60;
+const pauseAfterWord = 2000;
+const pauseBeforeNext = 400;
 
-  // word deleted
-  else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    roleIndex = (roleIndex + 1) % roles.length;
-    speed = 500; // pause before next word
-  }
+    /* Prevent text jumping */
+    typingElement.style.display = "inline-block";
+    typingElement.style.width = "240px";
+    typingElement.style.textAlign = "left";
+    typingElement.style.verticalAlign = "top";
 
-  setTimeout(typeEffect, speed);
-}
+    function typeEffect() {
 
-// start typing
-typeEffect();
+        const currentRole = roles[roleIndex];
+
+        if (!isDeleting) {
+
+            charIndex++;
+            typingElement.textContent =
+                currentRole.substring(0, charIndex);
+
+            if (charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, pauseAfterWord);
+                return;
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+
+        } else {
+
+            charIndex--;
+            typingElement.textContent =
+                currentRole.substring(0, charIndex);
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+
+                setTimeout(typeEffect, pauseBeforeNext);
+                return;
+            }
+
+            setTimeout(typeEffect, deletingSpeed);
+        }
+    }
+
+    typeEffect();
+});

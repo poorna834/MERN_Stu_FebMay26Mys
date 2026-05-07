@@ -1,26 +1,228 @@
-.dark-mode{
-    background-color: black;
-    color: white;
+/* =========================
+   GLOBAL THEME SYSTEM
+========================= */
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #f9fafb;
+    color: #111827;
 }
 
-.dark-mode nav{
-    background-color: rgb(222, 133, 133);
-    /* color: white; */
+/* DARK MODE */
+.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
 }
 
-.dark-mode section{
-    background-color: rgb(12, 1, 1);
+.dark-mode section {
+    background-color: #000000;
 }
 
-.dark-mode .bg-blue-100{
-    background-color: rgb(176, 222, 181);
-    color: white;
+.dark-mode nav {
+    background-color: #1a1a1a;
+    border-color: #333333;
 }
 
-.dark-mode .bg-white{
-    background-color: rgb(47, 159, 169);
+/* =========================
+   EXPERIENCE CARDS
+========================= */
+
+.experience-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.dark-mode .text-gray-700{
-    color: white;
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-color: #3b82f6;
+}
+
+.dark-mode .experience-card {
+    background-color: #111827;
+    border-color: #1f2937;
+    box-shadow: 0 4px 6px -1px rgba(255,255,255,0.03);
+}
+
+.dark-mode .experience-card:hover {
+    background-color: #1f2937;
+    box-shadow: 0 10px 15px -3px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.duration-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+}
+
+.dark-mode .duration-tag {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+}
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.dark-mode .experience-card h3 {
+    color: #f3f4f6;
+}
+
+.dark-mode .experience-card h4 {
+    color: #60a5fa;
+}
+
+.dark-mode .experience-card p {
+    color: #9ca3af;
+}
+
+/* =========================
+   BUTTONS / UTILITIES
+========================= */
+
+.dark-mode .bg-blue-100 {
+    background-color: #064e3b !important;
+    color: #ffffff !important;
+}
+
+#scroll-progress {
+    transition: width 0.1s ease-out;
+}
+
+#back-to-top {
+    z-index: 50;
+    transition: opacity 0.3s ease;
+}
+
+/* ==========================================
+   MODAL / POPUP FIX
+========================================== */
+
+/* Overlay */
+#contact-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Hidden state */
+#contact-modal.hidden {
+    display: none;
+}
+
+/* Popup Box */
+#modal-content {
+    background: #ffffff !important;
+    color: #111827 !important;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+/* All text inside popup visible */
+#modal-content h1,
+#modal-content h2,
+#modal-content h3,
+#modal-content p,
+#modal-content label,
+#modal-close {
+    color: #111827 !important;
+}
+
+/* Inputs */
+#modal-content input,
+#modal-content textarea,
+#modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff !important;
+    color: #111827 !important;
+    outline: none;
+}
+
+/* Placeholder */
+#modal-content input::placeholder,
+#modal-content textarea::placeholder {
+    color: #6b7280 !important;
+}
+
+/* Buttons */
+#modal-content button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Cancel */
+#form-cancel {
+    background: #d1d5db !important;
+    color: #111827 !important;
+}
+
+/* Submit */
+#modal-content button[type="submit"] {
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+/* Close Button */
+#modal-close {
+    background: transparent !important;
+    width: auto !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+/* =========================
+   DARK MODE MODAL OVERRIDE
+========================= */
+
+.dark-mode #modal-content {
+    background: #ffffff !important;
+    color: #111827 !important;
+}
+
+.dark-mode #modal-content * {
+    color: #111827 !important;
+}
+
+.dark-mode #modal-content button[type="submit"] {
+    color: #ffffff !important;
+}
+
+.dark-mode #form-cancel {
+    color: #111827 !important;
 }

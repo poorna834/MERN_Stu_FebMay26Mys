@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Portfolio Project</title>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
 
-    <!--  SCROLL PROGRESS BAR -->
+    <!-- SCROLL PROGRESS BAR -->
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-500 w-0 z-50"></div>
-
 
     <!-- NAVBAR -->
     <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b shadow-lg">
@@ -28,10 +27,12 @@
                 <li><a href="#skills" class="nav-link font-bold">Skills</a></li>
             </ul>
 
-            <button id="theme-toggle" class="bg-yellow-500 px-4 py-2 rounded">Theme</button>
+            <button id="theme-toggle" class="bg-yellow-500 px-4 py-2 rounded">
+                Theme
+            </button>
+
         </div>
     </nav>
-
 
     <!-- HERO -->
     <section class="min-h-screen flex flex-col lg:flex-row items-center justify-between px-10 py-20">
@@ -39,15 +40,12 @@
         <div>
             <h1 class="text-5xl mb-4">Poornashree L</h1>
 
-            <!-- GREETING -->
             <p id="greeting" class="text-lg text-gray-500 mb-2"></p>
 
-            <!-- TYPING -->
             <p class="text-2xl font-bold mb-6">
                 I am a <span id="typing-text" class="text-blue-600"></span>
             </p>
 
-            <!-- GEOLOCATION -->
             <p id="location" class="text-sm text-gray-500 mb-6"></p>
 
             <a href="#projects" class="bg-blue-500 text-white px-6 py-3 rounded">
@@ -56,38 +54,35 @@
         </div>
 
         <img src="assests/myphoto.jpeg" class="w-72 rounded shadow-lg">
-    </section>
 
+    </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="py-20 px-8">
 
         <h2 class="text-4xl text-center mb-10">My Projects</h2>
 
-        <!-- SEARCH -->
         <div class="text-center mb-6">
-            <input id="project-search" type="text" placeholder="Search projects..."
-                class="border px-4 py-2 rounded w-full max-w-md">
+            <input id="project-search"
+                   type="text"
+                   placeholder="Search projects..."
+                   class="border px-4 py-2 rounded w-full max-w-md">
         </div>
 
-        <!-- RESULT COUNT -->
         <p id="result-count" class="text-center mb-4 text-gray-600"></p>
 
-        <!-- FILTER -->
         <div id="project-filters" class="flex justify-center gap-4 mb-6">
             <button class="filter-btn" data-category="all">All</button>
             <button class="filter-btn" data-category="frontend">Frontend</button>
             <button class="filter-btn" data-category="backend">Backend</button>
         </div>
 
-        <!-- FAVORITES -->
         <div class="text-center mb-6">
             <button id="fav-toggle" class="bg-yellow-400 px-6 py-2 rounded">
                 Show Favorites
             </button>
         </div>
 
-        <!-- SORT -->
         <div class="text-center mb-10">
             <select id="sort-select" class="border px-4 py-2 rounded">
                 <option value="default">Sort</option>
@@ -96,12 +91,10 @@
             </select>
         </div>
 
-        <!-- PROJECTS -->
         <div id="projects-container"
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         </div>
 
-        <!-- RECENT PROJECTS -->
         <div class="mt-12">
             <h3 class="text-2xl mb-4 text-center">Recently Viewed</h3>
             <div id="recent-projects" class="grid grid-cols-2 gap-4"></div>
@@ -109,84 +102,96 @@
 
     </section>
 
-
     <!-- EXPERIENCE -->
     <section id="experience" class="py-20 px-8">
         <h2 class="text-4xl text-center mb-10">Experience</h2>
-    </section>
 
+        <div class="container">
+            <div id="experience-container"></div>
+        </div>
+    </section>
 
     <!-- SKILLS -->
     <section id="skills" class="py-20 px-8 bg-blue-100">
         <h2 class="text-4xl text-center mb-10">Skills</h2>
-        <div id="skills-container" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+
+        <div id="skills-container"
+             class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        </div>
     </section>
 
+    <!-- CONTACT MODAL TRIGGER -->
+    <button id="modal-trigger"
+            class="fixed bottom-8 right-8 w-16 h-16 bg-blue-900 text-white rounded-full shadow-lg">
+        ☏
+    </button>
 
-    <!-- CONTACT MODAL (UNCHANGED) -->
     <!-- CONTACT MODAL -->
-<button id="modal-trigger"
-    class="fixed bottom-8 right-8 w-16 h-16 bg-blue-900 text-white rounded-full shadow-lg">
-    ☏
-</button>
+    <div id="contact-modal"
+         class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center">
 
-<div id="contact-modal"
-    class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center">
+        <!-- MODAL CONTENT -->
+        <div id="modal-content"
+             class="bg-white p-8 rounded-xl shadow-2xl w-96 transform scale-95 opacity-0 transition-all duration-300 relative">
 
-    <!-- MODAL CONTENT -->
-    <div id="modal-content"
-        class="bg-white p-8 rounded-xl shadow-2xl w-96 transform scale-95 opacity-0 transition-all duration-300 relative">
-
-        <!-- CLOSE BUTTON -->
-        <button id="modal-close"
-            class="absolute top-2 right-4 text-xl font-bold">
-            ×
-        </button>
-
-        <h3 class="text-xl font-bold mb-4">Contact</h3>
-
-        <form id="contact-form" class="space-y-3">
-
-            <input id="contact-name" name="name"
-                class="border p-2 w-full rounded"
-                placeholder="Name">
-
-            <input id="contact-email" name="email"
-                class="border p-2 w-full rounded"
-                placeholder="Email">
-
-            <p id="form-message" class="text-sm"></p>
-
-            <!-- CANCEL BUTTON -->
-            <button type="button" id="form-cancel"
-                class="bg-gray-300 px-4 py-2 w-full rounded">
-                Cancel
+            <!-- CLOSE -->
+            <button id="modal-close"
+                    class="absolute top-2 right-4 text-xl font-bold">
+                ×
             </button>
 
-            <!-- SUBMIT -->
-            <button type="submit"
-                class="bg-blue-500 text-white px-4 py-2 w-full rounded">
-                Submit
-            </button>
+            <h3 class="text-xl font-bold mb-4">Contact</h3>
 
-        </form>
+            <form id="contact-form" class="space-y-3">
 
+                <input id="contact-name"
+                       name="name"
+                       placeholder="Name"
+                       class="border p-2 w-full rounded">
+
+                <input id="contact-email"
+                       name="email"
+                       placeholder="Email"
+                       class="border p-2 w-full rounded">
+
+                <p id="form-message" class="text-sm"></p>
+
+                <button type="button"
+                        id="form-cancel"
+                        class="bg-gray-300 px-4 py-2 w-full rounded">
+                    Cancel
+                </button>
+
+                <button type="submit"
+                        class="bg-blue-500 text-white px-4 py-2 w-full rounded">
+                    Submit
+                </button>
+
+            </form>
+
+        </div>
     </div>
-</div>
 
     <!-- BACK TO TOP -->
     <button id="back-to-top"
-        class="fixed bottom-6 left-6 bg-black text-white px-4 py-2 rounded hidden">
+            class="fixed bottom-6 left-6 bg-black text-white px-4 py-2 rounded hidden">
         ↑ Top
     </button>
 
-
-    <!-- JS -->
+    <!-- DATA -->
     <script src="js/data/projects.js"></script>
     <script src="js/data/skills.js"></script>
+    <script src="js/data/experience.js"></script>
 
+    <!-- FEATURES -->
     <script src="js/features/skills-render.js"></script>
+    <script src="js/features/experience-render.js"></script>
+
+    <!-- IMPLEMENTED FIXED MODAL -->
     <script src="js/features/modal.js"></script>
+
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/ProjectSearch.js"></script>
     <script src="js/features/contact-validation.js"></script>
     <script src="js/features/theme-toggle.js"></script>
     <script src="js/features/favourites.js"></script>
@@ -206,5 +211,4 @@
     <script src="js/main.js"></script>
 
 </body>
-
 </html>

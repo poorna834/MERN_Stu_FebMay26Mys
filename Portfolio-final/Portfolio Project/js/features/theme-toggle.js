@@ -1,0 +1,32 @@
+
+
+export function initThemeToggle() {
+  const button = document.getElementById("theme-toggle");
+
+  if (!button) return;
+
+  /* Load Saved Theme */
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    button.textContent = "☀️";
+  } else {
+    button.textContent = "🌙";
+  }
+
+  /* Toggle Theme */
+  button.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    const isLight =
+      document.body.classList.contains("light-mode");
+
+    localStorage.setItem(
+      "theme",
+      isLight ? "light" : "dark"
+    );
+
+    button.textContent = isLight ? "☀️" : "🌙";
+  });
+}
