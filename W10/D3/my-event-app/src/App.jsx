@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import { EventBasics } from './components/P1'
 import { EventObject } from './components/P2'
 import { PassingArguments } from './components/P3'
 import { UseCallbackEvents } from './components/P5'
 import { EventDelegation } from './components/P6'
 import { FormsPattern } from './components/P7'
+import { KeyboardEvents } from './components/P8'
 import './App.css'
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
       {/* < PassingArguments /> */}
       {/* < UseCallbackEvents /> */}
       {/* < EventDelegation /> */}
-      < FormsPattern />
+      {/* < FormsPattern /> */}
+      < KeyboardEvents />
     </>
   )
 }
