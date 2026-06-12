@@ -1,7 +1,11 @@
 import './App.css';
-// import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage";
 import CitySelector from "./components/CitySelector";
 import MovieSearch from "./components/MovieSearch";
+import BookButtton from "./components/BookButton";
+import GenreFilter from "./components/GenreFilter";
+import LoginForm from "./components/LoginForm";
+import SearchShortcut from "./components/SearchShortcut";
 
 function App() {
   return (
@@ -9,6 +13,10 @@ function App() {
       <CitySelector/>
       {/* Controlled Component */}
       <MovieSearch/>
+      <BookButtton/>
+      <GenreFilter/>
+      <LoginForm/>
+      <SearchShortcut/>
     </>
   );
 }
