@@ -9,7 +9,7 @@ export default function SearchShortcut(){
     }
     return(
         <section>
-            <h2>Keybboard Search</h2>
+            <h2>Keyboard Search</h2>
             <input type="text" placeholder="Press Enter"
             onKeyDown={handleKeyDown}/>
         </section>
