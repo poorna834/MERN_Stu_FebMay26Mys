@@ -36,7 +36,11 @@ Admin Users Only
 =========================================================
 */
 
-import { Navigate } from "react-router-dom";
+import {
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+
 
 import { useAuth } from "../hooks/useAuth";
 
@@ -53,6 +57,7 @@ export default function ProtectedRoute({
     user,
   } = useAuth();
 
+  const location = useLocation();
   /*
   ------------------------------------------------
   SESSION RESTORATION IN PROGRESS
@@ -70,8 +75,15 @@ export default function ProtectedRoute({
   */
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return (
+      <Navigate
+        to="/login"
+        replace
+        state={{ from: location }}
+      />
+    );
   }
+
 
   /*
   ------------------------------------------------
