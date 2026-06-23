@@ -37,15 +37,28 @@ Users
 
 
 Without layouts:
-Sidebar gets duplicated across every admin page.
+
+
+Sidebar gets duplicated
+across every admin page.
 
 
 =========================================================
 */
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function AdminLayout() {
+  const navigate = useNavigate();
+
+  const { logout } = useAuth();
+
+  function handleLogout() {
+    logout();
+
+    navigate("/login");
+  }
   return (
     <section style={styles.container}>
       {/*
@@ -65,6 +78,14 @@ export default function AdminLayout() {
           <NavLink to="/admin/movies" style={getNavStyle}>
             Movies
           </NavLink>
+
+          <NavLink to="/admin/shows" style={getNavStyle}>
+            Shows
+          </NavLink>
+
+          <button style={styles.logoutButton} onClick={handleLogout}>
+            Logout
+          </button>
         </nav>
       </aside>
 
@@ -146,6 +167,14 @@ const styles = {
     flex: 1,
 
     padding: "30px",
+  },
+
+  logoutButton: {
+    marginTop: "20px",
+
+    padding: "10px",
+
+    cursor: "pointer",
   },
 };
 
