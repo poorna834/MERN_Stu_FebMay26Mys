@@ -2,7 +2,7 @@
 
 /*
 =========================================================
-SPRINT 1 – LOGIN PAGE
+SPRINT 2 – REAL LOGIN INTEGRATION
 
 
 TOPICS COVERED:
@@ -10,33 +10,65 @@ TOPICS COVERED:
 
 ✓ Controlled Components
 ✓ useState
-✓ Forms
-✓ Event Handling
+✓ API Integration
+✓ Context API
+✓ JWT Authentication
+✓ Loading State
+✓ Error Handling
 ✓ useNavigate
 
 
 WHY THIS COMPONENT?
 
 
-Authentication is a critical part of every application.
+Login is the gateway into the
+authenticated experience.
 
 
 Sprint 1:
 
 
-UI Shell
+Login Form
+↓
+console.log()
 
 
 Sprint 2:
 
 
-JWT Authentication
+Login Form
 ↓
-Axios
+loginUser()
 ↓
-Context API
+JWT Received
 ↓
-Session Persistence
+AuthContext Updated
+↓
+Session Persisted
+↓
+Protected Routes Unlocked
+
+
+IMPLEMENTATION NOTES
+
+
+• Uses loginUser() from authApi.js
+• Uses AuthContext.login()
+• Prevents duplicate submissions
+• Preserves backend error messages
+• Redirects based on role
+
+
+KEY TAKEAWAYS
+
+
+Pages manage UI.
+
+
+API files manage communication.
+
+
+Context manages authentication state.
 
 
 =========================================================
@@ -44,59 +76,147 @@ Session Persistence
 
 import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
+import { loginUser } from "../api/authApi";
+
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const { login } = useAuth();
+
   const [form, setForm] = useState({
     email: "",
-
     password: "",
   });
 
-  function handleChange(event) {
-    const {
-      name,
+  const [loading, setLoading] = useState(false);
 
-      value,
-    } = event.target;
+  const [error, setError] = useState("");
+
+  function handleChange(event) {
+    const { name, value } = event.target;
 
     setForm((previous) => ({
       ...previous,
-
       [name]: value,
     }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
+    setError("");
+
     /*
-    Sprint 2:
-    Replace with authentication API.
+    -----------------------------------------
+    CLIENT VALIDATION
+    -----------------------------------------
     */
 
-    console.log(
-      "Login Form:",
+    if (!form.email.trim() || !form.password.trim()) {
+      setError("Email and password are required.");
 
-      form,
-    );
+      return;
+    }
 
-    navigate("/");
+    /*
+    -----------------------------------------
+    PREVENT DUPLICATE SUBMISSIONS
+    -----------------------------------------
+    */
+
+    if (loading) return;
+
+    try {
+      setLoading(true);
+
+      const response = await loginUser(form);
+
+      /*
+      ACTUAL BACKEND RESPONSE
+
+
+      {
+        success: true,
+        message: "Login successful",
+        data: {
+          token,
+          user
+        }
+      }
+      */
+
+      const token = response.data?.token;
+
+      const user = response.data?.user;
+
+      if (!token || !user) {
+        throw new Error("Invalid login response received.");
+      }
+
+      /*
+      -----------------------------------------
+      UPDATE AUTH CONTEXT
+      -----------------------------------------
+      */
+
+      login(token, user);
+
+      /*
+      -----------------------------------------
+      ROLE-BASED REDIRECTION
+      -----------------------------------------
+      */
+
+      const from =
+  location.state?.from?.pathname;
+
+    if (user.role === "admin") {
+      navigate(
+        from || "/admin/dashboard",
+        { replace: true }
+      );
+    } else {
+      navigate(
+        from || "/",
+        { replace: true }
+      );
+    }
+
+    } catch (error) {
+      setError(
+        error.message || error.response?.data?.message || "Login failed.",
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <section style={styles.container}>
       <h1>Login</h1>
 
+      <p style={styles.subtitle}>Welcome back to BookMyShow.</p>
+
+      {error && <div style={styles.error}>{error}</div>}
+
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           value={form.email}
           onChange={handleChange}
+          disabled={loading}
           required
         />
 
@@ -106,13 +226,16 @@ export default function Login() {
           placeholder="Password"
           value={form.password}
           onChange={handleChange}
+          disabled={loading}
           required
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
       </form>
 
-      <p>
+      <p style={styles.footer}>
         Don't have an account? <Link to="/signup">Signup</Link>
       </p>
     </section>
@@ -121,9 +244,23 @@ export default function Login() {
 
 const styles = {
   container: {
-    maxWidth: "400px",
+    maxWidth: "450px",
 
     margin: "40px auto",
+
+    background: "#fff",
+
+    padding: "30px",
+
+    borderRadius: "8px",
+
+    border: "1px solid #ddd",
+  },
+
+  subtitle: {
+    marginTop: "10px",
+
+    color: "#666",
   },
 
   form: {
@@ -133,24 +270,91 @@ const styles = {
 
     gap: "15px",
 
+    marginTop: "25px",
+  },
+
+  error: {
+    marginTop: "20px",
+
+    padding: "12px",
+
+    background: "#ffebee",
+
+    color: "#c62828",
+
+    borderRadius: "4px",
+  },
+
+  footer: {
     marginTop: "20px",
   },
 };
 
 /*
 =========================================================
-KEY TAKEAWAYS
+LOGIN FLOW
 
 
-1. Controlled components manage
-   form state.
+User
+↓
+Enter Credentials
+↓
+Submit
+↓
+loginUser()
+↓
+Backend Validation
+↓
+JWT Returned
+↓
+AuthContext.login()
+↓
+localStorage Updated
+↓
+Role Check
 
 
-2. Forms evolve incrementally.
+Admin
+↓
+/admin/dashboard
 
 
-3. Sprint 2 introduces real
-   authentication.
+User
+↓
+/
+
+
+=========================================================
+
+
+VERIFICATION
+
+
+✓ Controlled inputs
+
+
+✓ Uses loginUser()
+
+
+✓ Uses AuthContext
+
+
+✓ Prevents duplicate submissions
+
+
+✓ JWT persisted
+
+
+✓ User persisted
+
+
+✓ Role-based redirection
+
+
+✓ Backend contract verified
+
+
+✓ Production-oriented MVP
 
 
 =========================================================
