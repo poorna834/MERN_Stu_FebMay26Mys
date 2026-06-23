@@ -136,6 +136,12 @@ const Dashboard = lazy(() => import("../pages/admin/Dashboard"));
 
 const MovieManagement = lazy(() => import("../pages/admin/MovieManagement"));
 
+const MovieDetails = lazy(() => import("../pages/MovieDetails"));
+
+const MyBookings = lazy(() => import("../pages/MyBookings"));
+
+const ShowManagement = lazy(() => import("../pages/admin/ShowManagement"));
+
 /*
 =========================================================
 APP ROUTES
@@ -211,9 +217,29 @@ export default function AppRoutes() {
 
           <Route path="/movies" element={<Movies />} />
 
+          <Route path="/movies/:id" element={<MovieDetails />} />
+
           <Route path="/login" element={<Login />} />
 
           <Route path="/signup" element={<Signup />} />
+
+          <Route
+            path="/bookings"
+            element={
+              <ProtectedRoute>
+                <Bookings />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/my-bookings"
+            element={
+              <ProtectedRoute>
+                <MyBookings />
+              </ProtectedRoute>
+            }
+          />
         </Route>
 
         {/*
@@ -230,14 +256,6 @@ export default function AppRoutes() {
 
         =================================================
         */}
-
-        <Route
-          element={
-            <ProtectedRoute>
-              <Bookings />
-            </ProtectedRoute>
-          }
-        />
 
         {/*
         =================================================
@@ -257,7 +275,7 @@ export default function AppRoutes() {
         <Route
           path="/admin"
           element={
-            <ProtectedRoute roles={["admin"]}>
+            <ProtectedRoute requiredRole="admin">
               <AdminLayout />
             </ProtectedRoute>
           }
@@ -280,6 +298,8 @@ export default function AppRoutes() {
           <Route path="dashboard" element={<Dashboard />} />
 
           <Route path="movies" element={<MovieManagement />} />
+
+          <Route path="shows" element={<ShowManagement />} />
         </Route>
 
         {/*
