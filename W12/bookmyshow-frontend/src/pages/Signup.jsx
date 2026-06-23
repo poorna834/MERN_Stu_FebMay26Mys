@@ -64,19 +64,14 @@ API files manage communication.
 =========================================================
 */
 
-
 import { useState } from "react";
-
 
 import { Link, useNavigate } from "react-router-dom";
 
-
 import { registerUser } from "../api/authApi";
-
 
 export default function Signup() {
   const navigate = useNavigate();
-
 
   const [form, setForm] = useState({
     name: "",
@@ -84,19 +79,14 @@ export default function Signup() {
     password: "",
   });
 
-
   const [loading, setLoading] = useState(false);
-
 
   const [error, setError] = useState("");
 
-
   const [success, setSuccess] = useState("");
-
 
   function handleChange(event) {
     const { name, value } = event.target;
-
 
     setForm((previous) => ({
       ...previous,
@@ -104,10 +94,8 @@ export default function Signup() {
     }));
   }
 
-
   async function handleSubmit(event) {
     event.preventDefault();
-
 
     /*
     -----------------------------------------
@@ -115,18 +103,14 @@ export default function Signup() {
     -----------------------------------------
     */
 
-
     setError("");
     setSuccess("");
-
 
     if (!form.name.trim() || !form.email.trim() || !form.password.trim()) {
       setError("All fields are required.");
 
-
       return;
     }
-
 
     /*
     -----------------------------------------
@@ -134,16 +118,12 @@ export default function Signup() {
     -----------------------------------------
     */
 
-
     if (loading) return;
-
 
     try {
       setLoading(true);
 
-
       const response = await registerUser(form);
-
 
       /*
       Expected Backend Response
@@ -155,16 +135,13 @@ export default function Signup() {
       }
       */
 
-
       setSuccess(response.message || "Registration successful.");
-
 
       /*
       -----------------------------------------
       REDIRECT TO LOGIN
       -----------------------------------------
       */
-
 
       setTimeout(() => {
         navigate("/login");
@@ -176,20 +153,15 @@ export default function Signup() {
     }
   }
 
-
   return (
     <section style={styles.container}>
       <h1>Create Account</h1>
 
-
       <p style={styles.subtitle}>Join BookMyShow and start booking tickets.</p>
-
 
       {error && <div style={styles.error}>{error}</div>}
 
-
       {success && <div style={styles.success}>{success}</div>}
-
 
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
@@ -202,7 +174,6 @@ export default function Signup() {
           required
         />
 
-
         <input
           type="email"
           name="email"
@@ -212,7 +183,6 @@ export default function Signup() {
           disabled={loading}
           required
         />
-
 
         <input
           type="password"
@@ -224,12 +194,10 @@ export default function Signup() {
           required
         />
 
-
         <button type="submit" disabled={loading}>
           {loading ? "Creating Account..." : "Signup"}
         </button>
       </form>
-
 
       <p style={styles.footer}>
         Already have an account? <Link to="/login">Login</Link>
@@ -238,89 +206,65 @@ export default function Signup() {
   );
 }
 
-
 const styles = {
   container: {
     maxWidth: "450px",
 
-
     margin: "40px auto",
-
 
     background: "#fff",
 
-
     padding: "30px",
 
-
     borderRadius: "8px",
-
 
     border: "1px solid #ddd",
   },
 
-
   subtitle: {
     marginTop: "10px",
-
 
     color: "#666",
   },
 
-
   form: {
     display: "flex",
 
-
     flexDirection: "column",
 
-
     gap: "15px",
-
 
     marginTop: "25px",
   },
 
-
   error: {
     marginTop: "20px",
 
-
     padding: "12px",
-
 
     background: "#ffebee",
 
-
     color: "#c62828",
-
 
     borderRadius: "4px",
   },
-
 
   success: {
     marginTop: "20px",
 
-
     padding: "12px",
-
 
     background: "#e8f5e9",
 
-
     color: "#2e7d32",
-
 
     borderRadius: "4px",
   },
-
 
   footer: {
     marginTop: "20px",
   },
 };
-
 
 /*
 =========================================================
